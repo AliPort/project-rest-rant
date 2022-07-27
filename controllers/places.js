@@ -6,6 +6,11 @@ const router = require('express').Router()
     res.send('GET/places')
 })*/
 
+//get places new route
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
 //places index route
 router.get('/', (req, res) =>{
     let places = [{
