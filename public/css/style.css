@@ -28,12 +28,12 @@ h1 {
     color: cornflowerblue;
   }
 
-  body {
+body {
     background-color: lightseagreen;
     text-align: center;
   }
 
-  main{
+main{
     margin-right: 20px;
     margin-left: 20px;
     background-color: white;
