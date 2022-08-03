@@ -7,19 +7,21 @@ const places = require('../models/places.js')
     res.send('GET/places')
 })*/
 
-//get places new route
-router.get('/new', (req, res) => {
-  res.render('places/new')
-})
+
 
 //places index route
 router.get('/', (req, res) =>{
         res.render('places/index',{places})
 })
 
+//get places new route
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
 //post.places route
 router.post('/', (req, res) => {
-    //console.log(req.body)
+    console.log(req.body)
     if (!req.body.pic) {
       req.body.pic = 'http://placekitten.com/100/100'
     }
@@ -39,14 +41,25 @@ router.post('/', (req, res) => {
     if (isNaN(id)) {
       res.render('error404')
     }
-    else if (!places[id]){
-      res.render('error404')
-    }
     else {
-      res.render('places/show', {place:places[id]})
+      res.render('places/show', {place:places[id], id})
     }
   })
   
+//delete
+router.delete('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    places.splice(id,1)
+    res.redirect('/places')
+  }
+})
 
 
 module.exports=router
