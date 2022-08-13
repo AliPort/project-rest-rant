@@ -22,20 +22,17 @@ function show(data) {
             <h2>Rating</h2>
             <br />
             <h2>Description</h2>
-            <h3>{data.place.showEstablished()}</h3>
+            {/* <h3>{data.place.showEstablished()}</h3> */}
             <h4>Serving {data.place.cuisines}</h4>
             <br />
-            <a
-              href={`/places/${data.place.id}/edit`}
-              className="btn btn-warning"
-            >
-              Edit
+            <a href={`/places/${data.place.id}/edit`}
+              className="btn btn-warning">
+            Edit
             </a>
             {` `}
             <form
               method="POST"
-              action={`/places/${data.place.id}?_method=DELETE`}
-            >
+              action={`/places/${data.place.id}?_method=DELETE`}          >
               <button type="submit" className="btn btn-danger">
                 Delete
               </button>
